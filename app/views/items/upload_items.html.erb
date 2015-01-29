@@ -1,0 +1,16 @@
+<p>Add images</p>
+
+
+
+<form class="upload">
+  <input id="token" type="hidden" value="<%= form_authenticity_token %>"> 
+
+  <div class="filelist" id="filelist"></div>
+  <br>
+  <a id="pickfiles" href="#">[Select files]</a>
+  <a id="uploadfiles" href="#">[Upload files]</a>
+</form>
+
+
+
+<%= javascript_include_tag "upload_items.js" %>

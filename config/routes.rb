@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
   root 'frontpage#index'
+
+  resources :items
+  get '/upload_items' => 'items#upload_items', as: :upload_items
+  post '/upload' => 'items#upload', as: :upload
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'plupload-rails', :git => 'git://github.com/jvanbaarsen/plupload-rails.git', :branch => 'moved-assets'
 gem 'carrierwave'
+gem 'rmagick'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
