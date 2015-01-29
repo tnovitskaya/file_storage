@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require moxie
+//= require plupload.dev
+
+// optional, but recommended. it sets generic settings like flash url, etc.
+//= require plupload.settings
