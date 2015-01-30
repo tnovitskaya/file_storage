@@ -1,15 +1,20 @@
 <p>Add images</p>
 
+<table class="table files-list">
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Size</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
-
-<form class="upload">
-  <input id="token" type="hidden" value="<%= form_authenticity_token %>"> 
-
-  <div class="filelist" id="filelist"></div>
-  <br>
-  <a id="pickfiles" href="#">[Select files]</a>
-  <a id="uploadfiles" href="#">[Upload files]</a>
-</form>
+<input id="token" type="hidden" value="<%= form_authenticity_token %>"> 
+<button class="btn btn-primary select-files">Select files</button>
+<button class="btn btn-success upload-files">Upload files</button>
+<button class="btn btn-danger stop-upload">Stop upload</button>
 
 
 

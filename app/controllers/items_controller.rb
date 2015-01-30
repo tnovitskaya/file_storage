@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_item, only: [:show, :edit, :destroy]
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -26,6 +26,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     redirect_to items_path, notice: 'File uploaded' if @item.save
+  end
+
+  def update
+    if @item.update_attributes(item_params)
+      redirect_to items_path, notice: 'File updated' if @item.save
+    end
   end
 
   def destroy

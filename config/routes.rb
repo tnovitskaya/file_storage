@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'frontpage#index'
+  root 'items#index'
 
   resources :items
   get '/upload_items' => 'items#upload_items', as: :upload_items
