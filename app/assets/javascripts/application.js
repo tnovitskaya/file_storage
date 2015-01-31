@@ -21,3 +21,8 @@
 
 // optional, but recommended. it sets generic settings like flash url, etc.
 //= require plupload.settings
+//= require jquery.tagsinput
+
+$(function() {
+  $('#item_tags').tagsInput();
+});

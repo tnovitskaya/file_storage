@@ -1,10 +1,18 @@
-<h1>Listing items</h1>
+<h1>File list</h1>
 
-<table class="table files-list">
+<p>
+  <a href="<%= new_item_path(@item) %>" class="btn btn-success add-files">
+    <span class="glyphicon glyphicon-plus"></span>
+    Add file
+  </a>
+</p>
+
+<table class="table table-striped files-list">
   <thead>
     <tr>
       <th>File</th>
-      <th>Status</th>
+      <th></th>
+      <th width="150" class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -12,21 +20,18 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= link_to item.title, item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item), class: "btn btn-success update-files" %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger delete-files"  %></td>
+        <td class="text-right">
+          <% if (item.tags) %>
+            <% item.tags.split(',').each do |tag| %>
+              <small><%= link_to tag, '/tags/' + tag, class: 'label label-default' %></small>
+            <% end %>
+          <% end %>
+        </td>
+        <td class="text-right">
+          <%= link_to 'Edit', edit_item_path(item), class: "btn btn-default btn-sm update-files" %>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm delete-files"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<input id="token" type="hidden" value="<%= form_authenticity_token %>"> 
-<button class="btn btn-primary select-files">Select files</button>
-<button class="btn btn-success upload-files">Upload files</button>
-<button class="btn btn-danger stop-upload">Stop upload</button>
-
-<%= javascript_include_tag "upload_items.js" %>
-
-
-

@@ -11,5 +11,17 @@
   <%= @item.content %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <td class="text-right">
+  <% if (@item.tags) %>
+    <% @item.tags.split(',').each do |tag| %>
+      <%= link_to tag, '/tags/' + tag %>
+    <% end %>
+  <% end %>
+</td>
+</p>
+
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Back', root_path %>

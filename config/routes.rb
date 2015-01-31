@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items
+  resources :items, except: :index
   get '/upload_items' => 'items#upload_items', as: :upload_items
   post '/upload' => 'items#upload', as: :upload
 

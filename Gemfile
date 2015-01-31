@@ -25,6 +25,7 @@ gem 'plupload-rails', :git => 'git://github.com/jvanbaarsen/plupload-rails.git',
 gem 'carrierwave'
 gem 'rmagick'
 gem 'bootstrap-sass'
+gem 'simple_form'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
