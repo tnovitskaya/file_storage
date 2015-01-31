@@ -1,45 +1,40 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
   def index
     @items = Item.all
   end
 
-  # GET /items/1
-  # GET /items/1.json
   def show
   end
 
-  # GET /items/new
   def new
     @item = Item.new
   end
 
-  # GET /items/1/edit
   def edit
   end
 
-  # POST /items
-  # POST /items.json
   def create
     @item = Item.new(item_params)
-    redirect_to items_path, notice: 'File uploaded' if @item.save
+    if @item.save
+      redirect_to root_path, notice: 'File uploaded'
+    else
+      render 'new'
+    end
   end
 
   def update
     if @item.update_attributes(item_params)
-      redirect_to items_path, notice: 'File updated' if @item.save
+      redirect_to item_path, notice: 'File updated'
+    else
+      render 'edit'
     end
   end
 
   def destroy
     @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_path, notice: 'Item was successfully destroyed.'
   end
 
   def upload_items
@@ -59,6 +54,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :content)
+      params.require(:item).permit(:title, :content, :tags)
     end
+
 end
